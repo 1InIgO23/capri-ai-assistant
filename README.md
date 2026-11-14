@@ -1,23 +1,47 @@
-# Capri
+<h1 align="center">Capri</h1>
+
+<p align="center">
+  <b>An animated AI desktop companion for Windows and macOS.</b><br>
+  She lives on your desktop, chats with you, searches the web, manages your files, writes and
+  runs scripts and points at your windows. Runs on local LLMs (Ollama) or cloud models
+  (OpenAI-compatible APIs, Anthropic).
+</p>
+
+<p align="center">
+  <img alt="Windows 11" src="https://img.shields.io/badge/Windows-11-0078D6?logo=windows&logoColor=white">
+  <img alt="macOS Apple Silicon" src="https://img.shields.io/badge/macOS-Apple%20Silicon-000000?logo=apple&logoColor=white">
+  <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white">
+  <img alt="PySide6 (Qt)" src="https://img.shields.io/badge/UI-PySide6%20(Qt)-41CD52?logo=qt&logoColor=white">
+  <img alt="Ollama" src="https://img.shields.io/badge/LLM-Ollama%20%7C%20OpenAI%20%7C%20Anthropic-FF1450">
+  <img alt="License: MIT (code)" src="https://img.shields.io/badge/License-MIT%20(code)-A23BF2">
+</p>
+
+<table>
+  <tr>
+    <td><img src="docs/screenshots/idling.png" alt="Capri idling next to the chat panel"></td>
+    <td><img src="docs/screenshots/searching.png" alt="Capri running a web search"></td>
+  </tr>
+  <tr>
+    <td align="center">Chatting next to the holo panel</td>
+    <td align="center">Searching the web</td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/peeking.png" alt="Capri peeking from behind a window"></td>
+    <td><img src="docs/screenshots/pointing.png" alt="Capri pointing at a window"></td>
+  </tr>
+  <tr>
+    <td align="center">Peeking from behind a window</td>
+    <td align="center">Pointing at a window</td>
+  </tr>
+</table>
+
 > 🚧 **Status: ongoing project.** Features, images and documentation may still change.
+> Capri is an unofficial, non-commercial fan project based on a character from
+> *Cyberpunk: Edgerunners* (see [Disclaimer](#disclaimer)).
 
-A desktop companion for Windows 11 and macOS (Apple Silicon): an animated construct that lives
-on your desktop, chats with you, searches the web, manages your files and writes and runs simple
-scripts.
-
-![Capri idling next to the chat panel](docs/screenshots/idling.png)
-
-![Capri running a web search](docs/screenshots/searching.png)
-
-![Capri peeking from behind a window](docs/screenshots/peeking.png)
-
-![Capri pointing at a window](docs/screenshots/pointing.png)
-
-## Disclaimer
-
-Capri is a character from *Cyberpunk: Edgerunners*. This is a non-commercial, unofficial fan
-project for personal use, and it is not affiliated with or endorsed by CD Projekt Red, Studio
-Trigger or Netflix. All rights to the character belong to their respective owners.
+**Contents:** [Features](#features) · [Installation](#installation) · [Usage](#usage) ·
+[Character images](#character-images) · [Troubleshooting](#troubleshooting) ·
+[Project structure](#project-structure) · [License](#license) · [Disclaimer](#disclaimer)
 
 ## Features
 
@@ -196,7 +220,19 @@ assets/            theme.json and character images
 tests/             unit tests (python -m pytest)
 ```
 
-## AI Disclousure
+## License
+
+The source code is released under the [MIT License](LICENSE). The character images in
+`assets/character/` and `docs/screenshots/`, and the character Capri herself, are **not**
+covered by that license (see the disclaimer below).
+
+## Disclaimer
+
+Capri is a character from *Cyberpunk: Edgerunners*. This is a non-commercial, unofficial fan
+project for personal use, and it is not affiliated with or endorsed by CD Projekt Red, Studio
+Trigger or Netflix. All rights to the character belong to their respective owners.
+
+## AI Disclosure
 
 This software, including its source code and documentation, was made with the assistance of
 Claude Fable 5.2 and Claude Opus 5.5, artificial intelligence models developed by Anthropic. 
