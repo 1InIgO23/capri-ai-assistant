@@ -61,10 +61,12 @@
 
 ### Windows
 
-You need Windows 11, [Python 3.11+](https://www.python.org/downloads/) and
-[Ollama](https://ollama.com/download). In PowerShell, inside the project folder:
+You need Windows 11, [Python 3.11+](https://www.python.org/downloads/),
+[Git](https://git-scm.com/download/win) and [Ollama](https://ollama.com/download). In PowerShell:
 
 ```powershell
+git clone https://github.com/1InIgO23/capri-ai-assistant.git
+cd capri-ai-assistant
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -79,10 +81,12 @@ If activation is blocked, run `Set-ExecutionPolicy -Scope CurrentUser RemoteSign
 
 You need macOS 12 or later on an Apple Silicon Mac (M1 or newer),
 [Python 3.11+](https://www.python.org/downloads/macos/) (the python.org installer or
-`brew install python@3.12`) and [Ollama for macOS](https://ollama.com/download). In Terminal,
-inside the project folder:
+`brew install python@3.12`), Git (run `xcode-select --install` if `git` is missing) and
+[Ollama for macOS](https://ollama.com/download). In Terminal:
 
 ```bash
+git clone https://github.com/1InIgO23/capri-ai-assistant.git
+cd capri-ai-assistant
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
