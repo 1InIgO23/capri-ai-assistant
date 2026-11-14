@@ -18,8 +18,8 @@ from pathlib import Path
 log = logging.getLogger(__name__)
 
 STATES: tuple[str, ...] = (
-    "idle", "blink", "happy", "talking", "thinking", "searching", "files",
-    "coding", "alert", "error", "sleeping", "peek", "dragging", "pointing", "floating",
+    "idle", "blink", "talking", "thinking", "searching", "alert", "sleeping", "peek",
+    "dragging", "pointing", "floating",
 )
 
 #: For each state, the states whose images are tried next (in order) when the
@@ -28,14 +28,10 @@ STATES: tuple[str, ...] = (
 FALLBACKS: dict[str, tuple[str, ...]] = {
     "idle": (),
     "blink": ("idle",),
-    "happy": ("idle",),
     "talking": ("idle",),
     "thinking": ("idle",),
     "searching": ("thinking", "idle"),
-    "files": ("thinking", "idle"),
-    "coding": ("thinking", "idle"),
     "alert": ("idle",),
-    "error": ("alert", "idle"),
     "sleeping": ("idle",),
     "peek": ("idle",),
     "dragging": ("idle",),

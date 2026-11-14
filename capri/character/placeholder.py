@@ -15,14 +15,10 @@ _PARAMS: dict[str, tuple[float, float, float, float, int, str]] = {
     "idle": (0.6, 0.35, 1.0, 1.0, 6, "01+×▪◆"),
     "blink": (0.6, 0.35, 1.0, 1.0, 6, "01+×▪◆"),
     "peek": (0.5, 0.35, 0.95, 0.95, 4, "01+×▪◆"),
-    "happy": (1.3, 1.1, 1.15, 1.25, 10, "+✦◆×"),
     "talking": (0.9, 2.6, 1.05, 1.1, 6, "01▪◆"),
     "thinking": (3.2, 0.9, 0.95, 1.0, 8, "01?∴▪"),
     "searching": (4.2, 1.4, 0.95, 1.05, 9, "?@#/."),
-    "files": (1.8, 0.8, 1.0, 1.0, 7, "▤▥▦▧"),
-    "coding": (2.4, 1.8, 1.0, 1.1, 9, "{};<>/="),
     "alert": (1.0, 2.2, 1.12, 1.3, 4, "!▲"),
-    "error": (0.25, 0.0, 0.9, 1.0, 5, "!×#"),
     "sleeping": (0.12, 0.15, 0.85, 0.5, 2, "zZ"),
     "dragging": (2.6, 3.2, 0.92, 1.15, 8, "~≈*"),
     "pointing": (1.6, 1.6, 1.08, 1.25, 6, "»>▸"),
@@ -55,8 +51,6 @@ def draw_construct(painter: QPainter, rect: QRectF, state: str, t: float, primar
     painter.setRenderHint(QPainter.Antialiasing, True)
 
     flicker = 1.0
-    if state == "error":
-        flicker = 0.25 + 0.75 * (1.0 if _hash01(math.floor(t * 18)) > 0.45 else 0.0)
     pulse = 1.0 + 0.08 * math.sin(tm * 2 * math.pi * pulse_hz) if pulse_hz else 1.0
 
     # soft halo

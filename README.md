@@ -139,14 +139,10 @@ Without images, an abstract placeholder is drawn.
 | --- | --- | --- |
 | `idle.png` | Default | placeholder |
 | `blink.png` | Blinking | `idle` |
-| `happy.png` | After answering | `idle` |
-| `talking.png` | Writing an answer | `idle` |
-| `thinking.png` | Waiting for the model | `idle` |
+| `talking.png` | Writing an answer or a script | `idle` |
+| `thinking.png` | Waiting for the model, file operations | `idle` |
 | `searching.png` | Web search | `thinking` → `idle` |
-| `files.png` | File operations | `thinking` → `idle` |
-| `coding.png` | Scripts | `thinking` → `idle` |
-| `alert.png` | Waiting for your confirmation | `idle` |
-| `error.png` | Something failed | `alert` → `idle` |
+| `alert.png` | Waiting for your confirmation, or something failed | `idle` |
 | `sleeping.png` | Asleep | `idle` |
 | `peek.png` | Docked at a screen or window edge | `idle` |
 | `dragging_1.png`, `dragging_2.png` | While you drag her (2-frame animation) | `idle` |

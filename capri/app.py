@@ -560,7 +560,6 @@ class CapriApp(QObject):
         if self.run is not None and self.run.cancel.is_set():
             self.content.add_notice("Stopped.", "notice")
         elif final_text:
-            self.character.flash("happy")
             if not self.chat_visible():
                 preview = " ".join(final_text.split())
                 preview = preview[:150] + ("…" if len(preview) > 150 else "")

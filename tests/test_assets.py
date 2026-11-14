@@ -18,9 +18,9 @@ def test_empty_or_missing_folder_uses_placeholders(tmp_path: Path) -> None:
 
 
 def test_single_image_per_state(tmp_path: Path) -> None:
-    touch(tmp_path, "idle.png", "happy.png")
+    touch(tmp_path, "idle.png", "talking.png")
     index = scan_assets(tmp_path)
-    assert index.has_own("idle") and index.has_own("happy")
+    assert index.has_own("idle") and index.has_own("talking")
     assert index.found["idle"].animated is False
     assert [p.name for p in index.found["idle"].frames] == ["idle.png"]
 
@@ -37,13 +37,12 @@ def test_fallback_chain(tmp_path: Path) -> None:
     index = scan_assets(tmp_path)
     assert index.resolve("searching").state == "idle"
     assert index.resolve("peek").state == "idle"
-    assert index.resolve("error").state == "idle"
+    assert index.resolve("alert").state == "idle"
     touch(tmp_path, "thinking.png", "alert.png")
     index = scan_assets(tmp_path)
     assert index.resolve("searching").state == "thinking"
-    assert index.resolve("coding").state == "thinking"
-    assert index.resolve("error").state == "alert"
-    assert index.resolve("happy").state == "idle"
+    assert index.resolve("alert").state == "alert"
+    assert index.resolve("talking").state == "idle"
 
 
 def test_idle_alone_covers_every_state(tmp_path: Path) -> None:

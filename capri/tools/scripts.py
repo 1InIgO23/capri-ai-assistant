@@ -219,7 +219,7 @@ def script_tools() -> list[Tool]:
              obj({"filename": {"type": "string", "description": "e.g. cleanup.py"},
                   "content": {"type": "string", "description": "Full script source"}},
                  ["filename", "content"]),
-             save_script, "coding", "files",
+             save_script, "talking", "files",
              lambda a: f"WRITING {os.path.basename(str(a.get('filename') or 'script'))}",
              lambda a: os.path.basename(str(a.get("filename") or ""))),
         Tool("run_script", "run script",
@@ -228,6 +228,6 @@ def script_tools() -> list[Tool]:
              obj({"filename": {"type": "string"},
                   "args": {"type": "array", "items": {"type": "string"},
                            "description": "Optional command line arguments"}}, ["filename"]),
-             run_script, "coding", "script",
+             run_script, "talking", "script",
              lambda a: f"RUNNING {os.path.basename(str(a.get('filename') or 'script'))}"),
     ]

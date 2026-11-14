@@ -77,7 +77,6 @@ class CharacterWindow(QWidget):
         self._alert = False
         self._state = "idle"
         self._state_since = 0.0
-        self._happy_until = 0.0
         self._error_until = 0.0
         self._blink_until = 0.0
         self._next_blink = now + random.uniform(3, 6)
@@ -296,8 +295,8 @@ class CharacterWindow(QWidget):
             self.clear_hud()
 
     def flash(self, kind: str, message: str = "") -> None:
-        """``success``: short green flash. ``error``: red glitch burst + HUD line.
-        ``happy``: brief happy state."""
+        """``success``: short green flash. ``error``: red glitch burst + HUD line,
+        with the alert pose for a moment."""
         now = time.monotonic()
         if kind == "success":
             self._flash_color = qcolor(self.theme.color("success"))
@@ -309,8 +308,6 @@ class CharacterWindow(QWidget):
             self._error_until = now + 2.2
             if message:
                 self.set_hud("ERROR " + message, qcolor(self.theme.color("error")), hold=7.0)
-        elif kind == "happy":
-            self._happy_until = now + 2.2
 
     # ------------------------------------------------------------- pointing
     @property
@@ -478,7 +475,7 @@ class CharacterWindow(QWidget):
         if self._forced_state is not None:
             return self._forced_state
         if now < self._error_until:
-            return "error"
+            return "alert"  # errors use the alert pose
         if self._alert:
             return "alert"
         if now < self._pointing_until:
@@ -487,8 +484,6 @@ class CharacterWindow(QWidget):
             return self._activity
         if self._trip is not None:
             return "floating"
-        if now < self._happy_until:
-            return "happy"
         if self._sleeping:
             return "sleeping"
         if self._dock and self._peek_hidden:
@@ -504,7 +499,7 @@ class CharacterWindow(QWidget):
         if self._visual == "script" and not self._alert:
             return qcolor(self.theme.color("warning"))
         base = qcolor(self.theme.state_color(self._state))
-        if self._state in ("idle", "blink", "peek", "happy"):
+        if self._state in ("idle", "blink", "peek"):
             base = blend(base, qcolor(self.theme.mood_tint(self.mood.mood)), 0.3)
         return base
 
@@ -848,7 +843,6 @@ class CharacterWindow(QWidget):
             self._error_until = now + 1.0
             self.click_reaction.emit("annoyed")
         elif recent == 4:
-            self.flash("happy")
             self.click_reaction.emit("playful")
         elif recent < 4:
             self.clicked.emit()
